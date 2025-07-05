@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Velera_Skriner.ViewModel;
 
 namespace Velera_Skriner
 {
@@ -16,9 +17,17 @@ namespace Velera_Skriner
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainViewModel _vm = new();
+
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = _vm;
+
+            Loaded += async (_, __) =>
+            {
+                await _vm.LoadDataAsync();
+            };
         }
     }
 }

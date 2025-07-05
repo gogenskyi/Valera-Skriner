@@ -1,5 +1,6 @@
 ﻿using System.Net.Http;
 using System.Text.Json;
+using Velera_Skriner.Model;
 
 public class BinanceService
 {
