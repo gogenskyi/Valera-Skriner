@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <DataGrid ItemsSource="{Binding Pairs}" AutoGenerateColumns="False" HeadersVisibility="Column">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Пара" Binding="{Binding DisplaySymbol, Mode=OneWay}" Width="100"/>
+                <DataGridTextColumn Header="Ціна" Binding="{Binding LastPrice, Mode=OneWay}" Width="150"/>
+                <DataGridTextColumn Header="Зміна (%)" Binding="{Binding PriceChangePercent, Mode=OneWay}" Width="100"/>
+                <DataGridTextColumn Header="Обсяг" Binding="{Binding Volume, Mode=OneWay}" Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

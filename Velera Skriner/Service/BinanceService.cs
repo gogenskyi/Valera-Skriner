@@ -1,6 +1,7 @@
 ﻿using System.Net.Http;
 using System.Text.Json;
 using Velera_Skriner.Model;
+using System.Globalization;
 
 public class BinanceService
 {
@@ -22,9 +23,9 @@ public class BinanceService
             result.Add(new CryptoPair
             {
                 Symbol = symbol,
-                LastPrice = decimal.Parse(element.GetProperty("lastPrice").GetString() ?? "0"),
-                PriceChangePercent = decimal.Parse(element.GetProperty("priceChangePercent").GetString() ?? "0"),
-                Volume = decimal.Parse(element.GetProperty("volume").GetString() ?? "0")
+                LastPrice = decimal.Parse(element.GetProperty("lastPrice").GetString() ?? "0", CultureInfo.InvariantCulture),
+                PriceChangePercent = decimal.Parse(element.GetProperty("priceChangePercent").GetString() ?? "0", CultureInfo.InvariantCulture),
+                Volume = decimal.Parse(element.GetProperty("volume").GetString() ?? "0", CultureInfo.InvariantCulture)
             });
         }
 
